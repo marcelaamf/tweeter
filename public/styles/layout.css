@@ -24,4 +24,17 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+ main{
+  display: flex;
+  width: 90%;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+  border: solid black;
+  background-color :#f4f1ec;
+ }
 
+.container {
+  /* flex-direction: column; */
+ 
+}
