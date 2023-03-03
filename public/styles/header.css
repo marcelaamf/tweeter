@@ -12,11 +12,11 @@ background-image: url(../images/arches.png);
   display: flex; 
   flex-direction: column;
   margin-top: 140px;
-  border: solid black;
+  
  }
  
 .username {
   display: flex;
   justify-content: center;
-  border: solid rgb(184, 12, 12);
+  
 }
