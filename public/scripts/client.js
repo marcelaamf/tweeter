@@ -74,16 +74,20 @@ $(document).ready(function(){
     const submitForm = $('form')
     submitForm.on('submit', function(event) {
       event.preventDefault();
+      
       const data = $(this).serialize();
       
+     const errorMsg =  $(".error").hide("fast")
      if(!($("#tweet-text").val())) {
-      alert("Please type your tweet text before submitting");
+      errorMsg.text("⚠ Type your tweet before submitting ⚠");
+      errorMsg.slideDown('slow');
      return;
      }
 
      if($("#tweet-text").val().length > 140) {
-      alert("The text is too long");
-     return;
+      errorMsg.text("⚠ Your text is too big ⚠");
+      errorMsg.slideDown('slow');
+     return 
      }
 
       $.ajax({
@@ -92,6 +96,8 @@ $(document).ready(function(){
         data: data,
         success: function() { 
           loadTweets();
+          submitForm.trigger("reset");
+          errorMsg.trigger("reset")
         }
       });
     });

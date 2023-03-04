@@ -11,7 +11,7 @@ flex-direction: column;
   background-color: transparent;
   resize: none;
   width: 100%;
-   }
+  }
 
 .submit-tweet {
   background-color: #4056A1;
@@ -26,3 +26,8 @@ flex-direction: column;
   font-family: Bungee;
   font-weight: bolder;
  }
+
+ .error {
+  color: red;
+  padding:30px 0 0 0;
+}

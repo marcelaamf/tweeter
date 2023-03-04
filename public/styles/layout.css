@@ -32,5 +32,6 @@ body {
   flex-direction: column;
   margin: auto;
   background-color :#f4f1ec;
+  padding-top: 1.0rem;
  }
 
