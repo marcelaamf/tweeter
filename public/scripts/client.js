@@ -75,8 +75,17 @@ $(document).ready(function(){
     submitForm.on('submit', function(event) {
       event.preventDefault();
       const data = $(this).serialize();
-      const textArea = $("tweet-text");
- 
+      
+     if(!($("#tweet-text").val())) {
+      alert("Please type your tweet text before submitting");
+     return;
+     }
+
+     if($("#tweet-text").val().length > 140) {
+      alert("The text is too long");
+     return;
+     }
+
       $.ajax({
         method: 'POST',
         url: "/tweets",
