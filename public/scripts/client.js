@@ -74,6 +74,7 @@ $(document).ready(function() {
         loadTweets();
         submitForm.trigger("reset");
         errorMsg.trigger("reset");
+        $('#counter').text(140);
       }
     });
   });
