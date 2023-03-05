@@ -12,8 +12,7 @@ This repository is the starter code for the project: Students will fork and clon
 # Tweeter Demo and Pictures
 
 !["Tweeter demo-video"](https://user-images.githubusercontent.com/120437150/222945060-e3098576-1048-44c0-aaa5-5fdb810fe3ee.mp4)
-!["Desktop version"](<img width="1438" alt="Tweeter-Desktop-Version" src="https://user-images.githubusercontent.com/120437150/222945097-16022e6a-259c-42f2-a06f-23ccf84c0e86.png">)
-
+!["Desktop version"](https://github.com/marcelaamf/tweeter/blob/master/docs/Tweeter-Desktop-Version.png?raw=true)
 
 
 
