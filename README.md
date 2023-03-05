@@ -7,11 +7,13 @@ This repository is the starter code for the project: Students will fork and clon
 # Tweeter Functionalities
 
 - Share ideas using a multi-device tweeter clone.
-- Get auto-generated users and user avatars. And register the tweet time. 
+- Get auto-generated users and user avatars. Register the tweet time. 
 
 # Tweeter Demo and Pictures
-!["Tweeter demo-video"]()
-!["Desktop version"]()
+
+!["Tweeter demo-video"](https://user-images.githubusercontent.com/120437150/222945060-e3098576-1048-44c0-aaa5-5fdb810fe3ee.mp4)
+!["Desktop version"](<img width="1438" alt="Tweeter-Desktop-Version" src="https://user-images.githubusercontent.com/120437150/222945097-16022e6a-259c-42f2-a06f-23ccf84c0e86.png">)
+
 
 
 
