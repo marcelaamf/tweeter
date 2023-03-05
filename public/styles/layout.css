@@ -27,11 +27,21 @@ body {
  .container{
   font-family: Source Sans Pro;
   font-weight: bold;
-  display: flex;
   width: 90%;
-  flex-direction: column;
   margin: auto;
   background-color :#f4f1ec;
   padding-top: 1.0rem;
+  
  }
 
+@media only screen and (min-width: 1024px) {
+  body{
+    display: flex;
+    flex-direction: row;
+    
+  }
+  .container {
+    margin: 250px 3.5rem 3.5rem 3.5rem;
+    align-items: center;
+  }
+}

@@ -4,38 +4,15 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-$(document).ready(function(){
+$(document).ready(function() {
   console.log("client is ready");
-  // const data = [
-  //   {
-  //     "user": {
-  //       "name": "Newton",
-  //       "avatars": "https://i.imgur.com/73hZDYK.png",
-  //       "handle": "@SirIsaac"
-  //     },
-  //     "content": {
-  //       "text": "If I have seen further it is by standing on the shoulders of giants"
-  //     },
-  //     "created_at": 1461116232227
-  //   },
-  //   {
-  //     "user": {
-  //       "name": "Descartes",
-  //       "avatars": "https://i.imgur.com/nlhLi3I.png",
-  //       "handle": "@rd" },
-  //     "content": {
-  //       "text": "Je pense , donc je suis"
-  //     },
-  //     "created_at": 1461113959088
-  //   }
-  // ]
 
-// Create New Tweet
-  const createTweetElement = function(tweet){
-    const escapeText = function (str) {
+  // Create New Tweet
+  const createTweetElement = function(tweet) {
+    const escapeText = function(str) {
       let div = document.createElement('div');
       div.appendChild(document.createTextNode(str));
-        return div.innerHTML;
+      return div.innerHTML;
     };
 
     let $tweetMsg = $(
@@ -49,7 +26,7 @@ $(document).ready(function(){
         </header>
           <p class="tweets-texts">${escapeText(tweet.content.text)}</p>
         <footer>
-          <p>${escapeText(timeago.format(`${tweet.created_at} days ago`))}</p>
+          <p>${escapeText(timeago.format(tweet.created_at))}</p>
           <div class ="tweet-icons">
             <i class="fa-solid fa-flag"></i>
             <i class="fa-solid fa-retweet"></i>
@@ -59,59 +36,57 @@ $(document).ready(function(){
       </article>`
     );
     return $tweetMsg;
-  }
-// Render Tweets
+  };
+  // Render Tweets
   const renderTweets = function(tweetsDataBase) {
     for (let tweet in tweetsDataBase)
-    $('.posted-tweets').prepend(createTweetElement(tweetsDataBase[tweet]));
+      $('.posted-tweets').prepend(createTweetElement(tweetsDataBase[tweet]));
    
-  }
+  };
   renderTweets();
 
 
-//Submit New Tweets
-  
-    const submitForm = $('form')
-    submitForm.on('submit', function(event) {
-      event.preventDefault();
+  //Submit New Tweets
+  const submitForm = $('form');
+  submitForm.on('submit', function(event) {
+    event.preventDefault();
       
-      const data = $(this).serialize();
+    const data = $(this).serialize();
       
-     const errorMsg =  $(".error").hide("fast")
-     if(!($("#tweet-text").val())) {
+    const errorMsg = $(".error").hide("fast");
+    if (!($("#tweet-text").val())) {
       errorMsg.text("⚠ Type your tweet before submitting ⚠");
       errorMsg.slideDown('slow');
-     return;
-     }
+      return;
+    }
 
-     if($("#tweet-text").val().length > 140) {
+    if ($("#tweet-text").val().length > 140) {
       errorMsg.text("⚠ Your text is too big ⚠");
       errorMsg.slideDown('slow');
-     return 
-     }
+      return;
+    }
 
-      $.ajax({
-        method: 'POST',
-        url: "/tweets",
-        data: data,
-        success: function() { 
-          loadTweets();
-          submitForm.trigger("reset");
-          errorMsg.trigger("reset")
-        }
-      });
+    $.ajax({
+      method: 'POST',
+      url: "/tweets",
+      data: data,
+      success: function() {
+        loadTweets();
+        submitForm.trigger("reset");
+        errorMsg.trigger("reset");
+      }
     });
+  });
    
- 
-//Load new tweets
+  //Load new tweets
   const loadTweets = () => {
     $.ajax({
       method: 'GET',
       url: "/tweets",
-    })  
-    .then((response) => {
-          renderTweets(response);
     })
+      .then((response) => {
+        renderTweets(response);
+      });
   };
   loadTweets();
 
