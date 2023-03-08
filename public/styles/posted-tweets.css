@@ -2,15 +2,17 @@
 .tweets-container  {
   display: flex;
   flex-direction: column;
-  border: solid greenyellow;
   align-items: flex-start;
   height: auto;
   padding: 25px;
   border: solid 5px #545149;
-  box-shadow: 10px 10px rgb(197, 197, 238) ;
   margin-top: 50px;
   overflow-wrap: anywhere;
   hyphens: auto;
+ }
+
+ .tweets-container:hover {
+  box-shadow: 10px 10px rgb(197, 197, 238) ;
  }
 
 

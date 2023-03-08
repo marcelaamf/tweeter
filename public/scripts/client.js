@@ -39,9 +39,10 @@ $(document).ready(function() {
   };
   // Render Tweets
   const renderTweets = function(tweetsDataBase) {
+    $('.posted-tweets').empty();
     for (let tweet in tweetsDataBase)
       $('.posted-tweets').prepend(createTweetElement(tweetsDataBase[tweet]));
-   
+
   };
   renderTweets();
 
@@ -75,6 +76,9 @@ $(document).ready(function() {
         submitForm.trigger("reset");
         errorMsg.trigger("reset");
         $('#counter').text(140);
+      },
+      error: function(error) {
+        console.log("Error on data:", error);
       }
     });
   });
@@ -87,7 +91,10 @@ $(document).ready(function() {
     })
       .then((response) => {
         renderTweets(response);
-      });
+      })
+      .catch((error) => {
+        console.log("Error on data:", error)
+      })
   };
   loadTweets();
 
